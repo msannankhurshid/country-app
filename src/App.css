@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header > div {
+  width: 25%;
+}
+
+.input-field {
+  height: 34px;
+  width: 75%;
+}
+
+.btn-secondary {
+  height: 40px;
+  width: 23%;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 10%;
+}
+
+th, td {
+  border: 1px solid #fff;
+}
+
+.low-opacity {
+  opacity: 0.5;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  position: fixed;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
