@@ -14,7 +14,7 @@ const SearchBar = (props: SearchCountry) => {
     <div>
       <input
         placeholder="Search Countries"
-        className="input-field form-control"
+        className="input-field"
         value={code}
         onChange={(e) => onInputChange(e.target.value)}
       />

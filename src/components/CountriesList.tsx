@@ -1,9 +1,10 @@
 import React from "react";
-import { Country, Countries } from '../interfaces/Country.interface';
+import CountryData from './CountriesData';
+import { Countries } from '../interfaces/Country.interface';
 
-function CountriesList(props: Countries) {
+const CountriesList = (props: Countries) => {
   return (
-    <table className="table table-hover">
+    <table className="table">
       <thead>
         <tr>
           <th>Country Name</th>
@@ -11,19 +12,10 @@ function CountriesList(props: Countries) {
         </tr>
       </thead>
       <tbody>
-        {props.countries.map(renderWeather)}
+        {props.countries.map(CountryData)}
       </tbody>
     </table>
   );
-}
-
-function renderWeather(country: Country) {
-  return (
-    <tr key={country.code}>
-      <td>{country.name}</td>
-      <td>{country.code}</td>
-    </tr>
-  );
-}
+};
 
 export default CountriesList;

@@ -1,35 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import SearchCountries from './components/SearchCountries';
 import { fetchCountries } from './actions/index';
 
-class App extends Component {
-  props: any;
-  state: any;
+const App = () => {
+  const [countries, setCountries] = useState([]);
+  const [loader, setLoader] = useState(true);
 
-  constructor(props: any) {
-    super(props);
+  useEffect(() => {
+    (async () => {
+      const countries = await fetchCountries();
+      setCountries(countries);
+      setLoader(false);
+    })();
+  }, []);
 
-    this.state = { countries: [], loader: true };
-  }
-
-  async componentDidMount() {
-    const countries = await fetchCountries();
-    this.setState({ countries, loader: false });
-  }
-
-  render() {
-    const { countries, loader } = this.state;
-    return (
-      <div className="App">
-        <div className={(loader ? 'loader' : '')}></div>
-        <header className={`App-header ${(loader ? 'low-opacity' : '')}`}>
-          <SearchCountries countries={countries} />
-        </header>
+  return (
+    <div className="App">
+      <div className={(loader ? 'loader' : '')}></div>
+      <div className={`App-header ${(loader ? 'low-opacity' : '')}`}>
+        <SearchCountries countries={countries} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

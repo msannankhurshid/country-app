@@ -18,8 +18,7 @@ const SearchCountries = (props: Countries) => {
   };
 
   const filterCondition = (data: Country, code: string) => {
-    return (data.code.toLowerCase().indexOf(code.trim().toLowerCase()) !== -1
-      || data.name.toLowerCase().indexOf(code.trim().toLowerCase()) !== -1);
+    return (data.code.toLowerCase().indexOf(code.trim().toLowerCase()) !== -1);
   };
 
   return (
